@@ -1,0 +1,29 @@
+{
+  "app": {
+    "serveDirectory": "web",
+    "host": "localhost",
+    "port": 3000,
+    "stateSalt": "YOUR_OAUTH_STATE_SALT",
+    "jailRoot": false,
+    "csrfSalt": "YOUR_CSRF_TOKEN_SALT"
+  },
+  "bot": {
+    "name": "REMINDER_BOT_NAME"
+  },
+  "slack": {
+    "clientID": "YOUR_SLACK_APPLICATION_CLIENT_ID",
+    "clientSecret": "YOUR_SLACK_APPLICATION_CLIENT_SECRET",
+    "authorizationUrl": "https://slack.com/oauth/authorize",
+    "tokenEndpointUrl": "https://slack.com/api/oauth.access",
+    "authTestUrl": "https://slack.com/api/auth.test",
+    "imOpenUrl": "https://slack.com/api/im.open",
+    "postMessageUrl": "https://slack.com/api/chat.postMessage"
+  },
+  "mysql": {
+    "host": "localhost",
+    "port": 3306,
+    "user": "root",
+    "password": null,
+    "database": "YOUR_DATABASE_NAME"
+  }
+}
