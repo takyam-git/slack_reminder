@@ -1,0 +1,25 @@
+name: 'slack_reminder'
+version: 0.0.1
+description: >
+  A application which send reminder to slack.
+author: takyam <takayuki.yamaguch.m@gmail.com>
+homepage: https://github.com/takyam-git/slack_reminder
+environment:
+  sdk: '>=1.9.3 <2.0.0'
+dependencies:
+  browser: '>=0.10.0 <0.11.0'
+  core_elements: ">=0.7.1+2 <0.8.0"
+  paper_elements: '>=0.7.0 <0.8.0'
+  polymer: '>=0.16.2 <0.17.0'
+  route_hierarchical: ">=0.6.1+1 <0.7.0"
+  intl: ">=0.12.2 <0.13.0"
+  start: ">=0.2.7 <0.3.0"
+  http: ">=0.11.2 <0.12.0"
+  crypt: ">=0.0.1 <0.1.0"
+  sqljocky: ">=0.11.0 <0.12.0"
+  validator: ">=0.0.7 <0.1.0"
+transformers:
+- polymer:
+    entry_points:
+      - web/index.html
+      - web/login.html

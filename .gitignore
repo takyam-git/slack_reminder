@@ -1,0 +1,9 @@
+.buildlog
+.DS_Store
+.iml
+.idea
+.pub/
+build/
+packages
+pubspec.lock
+config/**/*.json
