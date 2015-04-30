@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `events` (
   `user_name`         VARCHAR(255)          NULL        DEFAULT NULL,
   `timing`            DATETIME              NOT NULL,
   `is_completed`      TINYINT               NOT NULL    DEFAULT 0,
-  'error'             VARCHAR(255)          NULL        DEFAULT NULL,
+  `error`             VARCHAR(255)          NULL        DEFAULT NULL,
   `updated_at`        TIMESTAMP             NOT NULL    DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `created_at`        DATETIME              NOT NULL,
   PRIMARY KEY (`id`)
