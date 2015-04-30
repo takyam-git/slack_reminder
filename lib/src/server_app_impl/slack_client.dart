@@ -61,7 +61,7 @@ class SlackOAuthClient {
         'client_id': this.clientID,
         'client_secret': this.clientSecret,
         'code': code,
-        'redirect_url': this.callbackUrl.toString(),
+        'redirect_uri': this.callbackUrl.toString(),
       });
 
       //request access token
