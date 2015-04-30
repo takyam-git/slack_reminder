@@ -55,6 +55,7 @@ $ mysql -u user_name -p database_name < sql/create_tables.sql
 #### For production
 
 ```
+$ pub build
 $ mkdir config/production
 $ cp config/production/app.json.example config/production/app.json
 $ vi config/production/app.json
