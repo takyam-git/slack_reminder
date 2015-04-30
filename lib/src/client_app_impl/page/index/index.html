@@ -1,0 +1,52 @@
+<polymer-element name="app-page-index">
+	<template>
+		<link rel="stylesheet" href="index.css">
+		<core-list-dart data="{{data | sortEvents}}" id="item-list" fit>
+			<template>
+				<core-item class="event-item">
+					<div horizontal layout center flex>
+						<template if="{{model.loading}}">
+							<paper-spinner active></paper-spinner>
+						</template>
+						<template if="{{!model.isCompleted}}">
+							<core-icon icon="icons:event"></core-icon>
+						</template>
+						<template if="{{model.isCompleted && model.error == null}}">
+							<core-icon icon="icons:done"></core-icon>
+						</template>
+						<template if="{{model.isCompleted && model.error != null}}">
+							<core-icon icon="icons:block"></core-icon>
+						</template>
+						<a on-click="{{handleMove}}" _href="/events/{{model.id}}" class="name" index="{{index}}" flex>
+							{{model.name}}
+						</a>
+
+						<div class="timing">
+							<core-icon icon="device:access-time"></core-icon>
+							{{model.displayTiming}}
+							<template if="{{!model.isCompleted}}">({{model.displayRestTime}})</template>
+							<template if="{{model.isCompleted && model.error == null}}">(完了)</template>
+							<template if="{{model.isCompleted && model.error != null}}">({{model.error}})</template>
+						</div>
+						<div class="button">
+							<core-menu-button>
+								<core-icon-button class="event-item-edit" icon="icons:more-vert"></core-icon-button>
+								<core-dropdown class="dropdown" layered halign="right"
+											   style="border:1px solid #ccc;background-color: #eee;">
+									<core-menu>
+										<core-item icon="notification:more" label="詳細" on-click="{{handleMove}}"
+												   _href="/events/{{model.id}}"></core-item>
+										<template if="!{{model.isCompleted}}">
+											<core-item icon="editor:mode-edit" label="編集" on-click="{{handleMove}}"
+													   _href="/events/{{model.id}}/edit"></core-item>
+										</template>
+									</core-menu>
+								</core-dropdown>
+							</core-menu-button>
+						</div>
+					</div>
+				</core-item>
+			</template>
+		</core-list-dart>
+	</template>
+</polymer-element>

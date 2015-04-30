@@ -1,0 +1,9 @@
+paper-button.save-button {
+    background-color: #7986cb;
+    color: #fff;
+}
+
+paper-input-decorator[disabled] {
+    background-color: #eee;
+    color: #999;
+}

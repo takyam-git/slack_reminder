@@ -1,0 +1,43 @@
+<polymer-element name="app-main">
+	<template>
+		<link rel="stylesheet" href="main.css">
+		<core-drawer-panel id="drawerPanel">
+			<core-header-panel drawer id="sidebar" layout vertical fit>
+				<core-toolbar id="sidebar-header">
+					<core-icon icon="device:access-alarms"></core-icon>
+					<span>SlackReminder(α)</span>
+				</core-toolbar>
+				<div vertical fit>
+					<core-menu id="sidebar-menu" selected="index" valueattr="pagename" start>
+						<template repeat="{{page in pages}}">
+							<template if="{{page.icon != ''}}">
+								<core-item icon="{{page.icon}}" label="{{page.displayName}}" pagename="{{page.name}}"
+										   on-click="{{handleMove}}" _href="{{page.path}}" style="cursor: pointer;">
+								</core-item>
+							</template>
+						</template>
+					</core-menu>
+					<hr>
+					<core-item id="logout-menu" icon="icons:arrow-back" label="ログアウト" end></core-item>
+				</div>
+			</core-header-panel>
+			<core-header-panel main>
+				<core-toolbar id="mainheader">
+					<paper-icon-button id="navicon" icon="menu"></paper-icon-button>
+					<span flex id="content-title"></span>
+				</core-toolbar>
+				<div class="content" id="main-container">
+				</div>
+			</core-header-panel>
+		</core-drawer-panel>
+		<paper-action-dialog backdrop layered="true" id="logout-dialog" style="width: 80%;">
+			<p>ログアウトしますか？</p>
+			<paper-button affirmative autofocus flex style="border: 1px solid #eee;" id="cancel-logout-button">
+				<core-item icon="icons:arrow-back" label="キャンセル" flex></core-item>
+			</paper-button>
+			<paper-button affirmative flex style="background: #eee;" id="logout-button">
+				<core-item icon="icons:done" label="ログアウト" flex></core-item>
+			</paper-button>
+		</paper-action-dialog>
+	</template>
+</polymer-element>

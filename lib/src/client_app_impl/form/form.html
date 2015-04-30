@@ -1,0 +1,56 @@
+<polymer-element name="app-event-form" attributes="name notification_type user_name channel_name timing description">
+	<template>
+		<link rel="stylesheet" href="form.css">
+		<form id="form" flex>
+			<core-item icon="icons:event">
+				<paper-input-decorator id="decorator-name" label="イベント名" error="入力必須(200文字以内)" floatingLabel flex autoValidate>
+					<input id="input-event-name" is="core-input" _value="{{name}}" required pattern=".*\S+.*" maxlength="200">
+				</paper-input-decorator>
+			</core-item>
+			<core-item icon="social:notifications" label="通知方法:">
+				<paper-radio-group selected="{{notification_type}}" flex id="notification-type">
+					<paper-radio-button name="dm" label="DirectMessage(DM)"></paper-radio-button>
+					<paper-radio-button name="channel" label="チャンネル"></paper-radio-button>
+				</paper-radio-group>
+			</core-item>
+			<core-item id="user-name-container" icon="icons:account-circle">
+				<paper-input-decorator id="decorator-user-name" label="通知先ユーザー名" error="入力必須(半角英数_@.-で200文字以内)" floatingLabel flex autoValidate>
+					<input id="input-event-user-name" is="core-input" _value="{{user_name}}" required
+						   pattern="^[a-zA-Z0-9_@\.\-]+$" maxlength="200">
+				</paper-input-decorator>
+			</core-item>
+			<core-item id="channel-name-container" icon="social:group">
+				<paper-input-decorator id="decorator-channel-name" label="通知先チャンネル名" error="#から始まるチャンネル名(半角英数_で200文字以内)" floatingLabel flex
+									   autoValidate>
+					<input id="input-event-channel-name" is="core-input" _value="{{channel_name}}" required
+						   pattern="^#[0-9a-zA-Z_]+" maxlength="200">
+				</paper-input-decorator>
+			</core-item>
+			<core-item icon="device:access-time" layout horizontal>
+				<paper-input-decorator id="decorator-timing-date" label="通知する日" error="未来のYYYY-MM-DD形式で入力必須"
+									   floatingLabel autoValidate flex>
+					<input id="input-event-timing-date" is="core-input" _value="{{timingDate}}" required
+						   type="date" step="1">
+				</paper-input-decorator>
+				<paper-input-decorator id="decorator-timing-time" label="通知する時間" error="3分以上未来のHH:MM:SS形式で入力必須"
+									   floatingLabel autoValidate flex>
+					<input id="input-event-timing-time" is="core-input" _value="{{timingTime}}" required
+						   type="time" step="1">
+				</paper-input-decorator>
+			</core-item>
+			<core-item icon="icons:description">
+				<paper-input-decorator label="概要" floatingLabel flex autoValidate error="1000文字以内で入力">
+					<paper-autogrow-textarea flex rows="{{description.split('\n').length}}">
+						<textarea id="input-event-description" _value="{{description}}" maxlength="1000"></textarea>
+					</paper-autogrow-textarea>
+				</paper-input-decorator>
+			</core-item>
+			<core-menu layout horizontal flex>
+				<paper-button flex raised class="save-button" id="save-button">
+					<core-item icon="icons:save" label="保存" flex></core-item>
+				</paper-button>
+			</core-menu>
+		</form>
+		<paper-toast text="正しく入力されていない項目があります" id="toast-invalid-fields"></paper-toast>
+	</template>
+</polymer-element>

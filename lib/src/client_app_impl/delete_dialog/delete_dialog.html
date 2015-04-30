@@ -1,0 +1,16 @@
+<polymer-element name="app-event-delete-dialog" attributes="eventid name">
+	<template>
+		<link rel="stylesheet" href="delete_dialog.css">
+		<paper-action-dialog backdrop layered="true"> <!--autoCloseDisabled -->
+			<p>イベントID:{{eventid}} 「{{name}}」を削除しても良いですか？</p>
+
+			<p>削除したイベントは復活させる事ができません。再度登録してください。</p>
+			<paper-button affirmative autofocus flex style="border: 1px solid #eee;" id="cancel-button">
+				<core-item icon="icons:arrow-back" label="キャンセル" flex></core-item>
+			</paper-button>
+			<paper-button affirmative flex style="background: #f42f14;color: #fff;" id="delete-button">
+				<core-item icon="icons:delete" label="削除する" flex></core-item>
+			</paper-button>
+		</paper-action-dialog>
+	</template>
+</polymer-element>

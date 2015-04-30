@@ -1,0 +1,39 @@
+<polymer-element name="app-page-detail">
+	<template>
+		<link rel="stylesheet" href="detail.css">
+		<template bind if="event">
+			<h1>{{event.name}}</h1>
+			<template if="{{event.loading}}">
+				<paper-spinner active></paper-spinner>
+			</template>
+			<core-item icon="social:notifications" label="{{event.notificationType.displayName}}に通知"></core-item>
+			<template if="{{event.notificationType.name=='channel'}}">
+				<core-item icon="icons:account-circle" label="{{event.user.name}}"></core-item>
+				<core-item icon="social:group" label="{{event.channel.name}}"></core-item>
+			</template>
+			<div layout horizontal flex>
+				<core-item icon="device:access-time">
+					{{event.displayTiming}}
+					<template if="{{!event.isCompleted}}">({{event.displayRestTime}})</template>
+					<template if="{{event.isCompleted && event.error == null}}">(完了)</template>
+					<template if="{{event.isCompleted && event.error != null}}">({{event.error}})</template>
+				</core-item>
+			</div>
+			<core-item icon="icons:description">
+				<app-nl2br text="{{event.description}}"></app-nl2br>
+			</core-item>
+			<core-menu layout horizontal flex>
+				<template if="{{!event.isCompleted}}">
+					<paper-button flex raised class="edit-button" on-click="{{handleMove}}"
+								  _href="/events/{{event.id}}/edit">
+						<core-item icon="editor:mode-edit" label="編集" flex></core-item>
+					</paper-button>
+				</template>
+				<paper-button flex raised id="delete-button">
+					<core-item icon="icons:delete" label="削除" flex></core-item>
+				</paper-button>
+			</core-menu>
+			<app-event-delete-dialog eventid="{{event.id.toString()}}" name="{{event.name}}"></app-event-delete-dialog>
+		</template>
+	</template>
+</polymer-element>

@@ -1,0 +1,36 @@
+<polymer-element name="app-login">
+	<template>
+		<link rel="stylesheet" href="login.css">
+		<core-header-panel layout vertical fit>
+			<core-toolbar class="core-header">
+				<core-item id="logo" icon="device:access-alarms" label="SlackReminder(α)" flex></core-item>
+			</core-toolbar>
+			<core-menu layout vertical center flex>
+				<paper-button raised id="login-button">
+					<core-item icon="icons:account-box" label="利用規約に同意してSlackでログイン"></core-item>
+				</paper-button>
+			</core-menu>
+			<div layout vertical flex style="text-align: center;">
+				<h2>利用規約</h2>
+
+				<p>α版なのでどんな脆弱性が潜んでるか分かりません。</p>
+
+				<p>
+					アクセストークンが漏れた場合、第三者にSlackの中身が全て見えちゃうかもしれません。<br>
+					そのような自体になっても何の責任も取れないので、企業のSlack等の外部の人間に中身が見えるとマズいような用途では利用しないでください。<br>
+					個人でSlack立ててそのアカウントで利用してみる、とかがいいと思います。
+				</p>
+
+				<p>
+					脆弱性の評価は <a href="https://github.com/takyam-git/slack_reminder">Github</a> にソースコードを公開してるのでそちらをご覧ください。<br>
+					社内サーバーに立てて使う、とかがいいんじゃないかなとは思ってます。
+				</p>
+
+				<p>
+					こういった事情を理解し、一切の責任を自分で取れる方のみご利用ください。<br>
+					何かあれば <a href="http://twitter.com/takyam">@takyam</a> までご連絡ください。
+				</p>
+			</div>
+		</core-header-panel>
+	</template>
+</polymer-element>

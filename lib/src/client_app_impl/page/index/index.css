@@ -1,0 +1,29 @@
+core-item.event-item {
+    height: 50px;
+    background-color: #efefef;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+core-item.event-item .name {
+    font-size: 1.25em;
+    margin-right: 1em;
+}
+
+core-item a:active, a:link {
+    color: #000;
+    text-decoration: none;
+}
+
+core-item a:visited {
+    color: #333;
+    text-decoration: none;
+}
+
+core-item.event-item .name:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+core-item.event-item .button {
+    margin-left: 0.5em;
+}
