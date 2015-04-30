@@ -1,7 +1,7 @@
 {
   "app": {
     "serveDirectory": "build/web",
-    "host": "example.com",
+    "url": "http://example.com",
     "port": 80,
     "stateSalt": "YOUR_OAUTH_STATE_SALT",
     "jailRoot": false,

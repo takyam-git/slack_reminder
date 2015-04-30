@@ -19,10 +19,7 @@ class AppServer {
   Reminder _reminder;
 
   AppServer(this._config) {
-    this._baseUrl = "http://${this._config['app']['host']}";
-    if (this._config['app']['port'] != 80) {
-      this._baseUrl = "${this._baseUrl}:${this._config['app']['port']}";
-    }
+    this._baseUrl = "${this._config['app']['url']}";
 
     this._slackOAuthClient = new SlackOAuthClient(
         Uri.parse(this._config['slack']['authorizationUrl']),
