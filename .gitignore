@@ -1,6 +1,6 @@
 .buildlog
 .DS_Store
-.iml
+*.iml
 .idea
 .pub/
 build/
